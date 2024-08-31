@@ -1,15 +1,18 @@
 package com.example.demo.models;
 
+import org.springframework.data.annotation.Id;
+
 public class Application {
 
-    String Id;
+    @org.springframework.data.annotation.Id
+    String id;
 
-    public String getId() {
-        return Id;
+    public String getid() {
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        id = id;
     }
 
     public String getUserId() {
@@ -25,7 +28,17 @@ public class Application {
     Integer noOfInterviewRounds;
     String recruiterEmailId;
     String roleAppliedFor;
+
+    public String getDateOfApplication() {
+        return dateOfApplication;
+    }
+
+    public void setDateOfApplication(String dateOfApplication) {
+        this.dateOfApplication = dateOfApplication;
+    }
+
     String currentStatus;
+    String dateOfApplication;
 
     public String getUserID() {
         return userId;

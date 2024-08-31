@@ -27,4 +27,16 @@ public class ApplicationController {
         List<Application> applications =  applicationService.getApplicationByUserId(userId);
         return ResponseEntity.ok(applications);
     }
+
+    @PostMapping("updateApplication/{id}")
+    ResponseEntity<Application> updateApplication(@PathVariable("id") String id, @RequestBody Application application){
+        Application newApplication  = applicationService.updateAppById(id,application);
+        return ResponseEntity.ok(newApplication);
+    }
+
+    @DeleteMapping("delete/{id}")
+    ResponseEntity<String> deleteApplication(@PathVariable("id") String Id){
+        applicationService.deleteApplication(Id);
+        return ResponseEntity.ok("Application Deleted Succesfull");
+    }
 }
