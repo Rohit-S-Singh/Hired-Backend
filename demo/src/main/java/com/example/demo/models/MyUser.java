@@ -1,28 +1,30 @@
 package com.example.demo.models;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Set;
 
-
-//(collection = "users")
 @Document(collection = "users")
-public class User {
+public class MyUser {
 
-    String Id;
-    String userName;
-    String email;
-    String password;
-    Set<String> roles;
-    Boolean havingOffer;
-    String workExperience;
+    @Id
+    private ObjectId _id;
+    private String userName;
+    private String email;
+    private String password;
+    private ArrayList<String> roles;
+    private Boolean havingOffer;
+    private String workExperience;
 
-    public String getId() {
-        return Id;
+    public ObjectId get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        Id = id;
+    public void set_id(ObjectId _id) {
+        this._id = _id;
     }
 
     public String getUserName() {
@@ -49,11 +51,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<String> getRoles() {
+    public ArrayList<String> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<String> roles) {
+    public void setRoles(ArrayList<String> roles) {
         this.roles = roles;
     }
 

@@ -2,8 +2,10 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Application;
 import com.example.demo.service.ApplicationService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,11 +17,23 @@ public class ApplicationController {
     @Autowired
     private ApplicationService applicationService;
 
+
     @PostMapping("/add")
     ResponseEntity<Application> addApplication(@RequestBody Application application){
 
         Application newApplication = applicationService.saveApplication(application);
         return ResponseEntity.ok(newApplication);
+    }
+
+    @GetMapping("/get-csrf")
+    public CsrfToken getCsrf(HttpServletRequest r){
+        return (CsrfToken)r.getAttribute("_csrf");
+    }
+
+    @GetMapping("/a")
+    public String addApplication(){
+
+        return "oyee";
     }
 
     @GetMapping("/getAllUserApplications/{id}")
