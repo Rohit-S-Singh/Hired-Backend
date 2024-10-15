@@ -51,6 +51,6 @@ public class ApplicationController {
     @DeleteMapping("delete/{id}")
     ResponseEntity<String> deleteApplication(@PathVariable("id") String Id){
         applicationService.deleteApplication(Id);
-        return ResponseEntity.ok("Application Deleted Succesfull");
+        return ResponseEntity.ok("Application Deleted Successfull");
     }
 }

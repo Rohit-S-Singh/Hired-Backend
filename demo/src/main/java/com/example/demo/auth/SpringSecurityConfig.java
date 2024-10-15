@@ -34,7 +34,9 @@ public class SpringSecurityConfig {
         http.authorizeHttpRequests(customizer->customizer
                 .requestMatchers("user/login","user/register")
                 .permitAll()
-                .anyRequest().authenticated());
+                .anyRequest().authenticated())
+                .cors(Customizer.withDefaults())
+        ;
 
         //to use the default form login web page provided by spring
         //http.formLogin(Customizer.withDefaults());
